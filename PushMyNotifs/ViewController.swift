@@ -15,9 +15,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        FIRMessaging.messaging().subscribe(toTopic: "/topics/news")
     }
 
+    @IBOutlet weak var tokenView: UITextView!
+    @IBAction func handleLogToken(_ sender: UIButton) {
+        // [START log_fcm_reg_token]
+        guard let token = Messaging.messaging().fcmToken else {
+            return
+        }
+        print("FCM token: \(token)")
+        tokenView.text = token
+        // [END log_fcm_reg_token]
 
+    }
+    
+    @IBAction func handleSubscribe(_ sender: UIButton) {
+        
+        // [START subscribe_topic]
+        Messaging.messaging().subscribe(toTopic: "news")
+        print("Subscribed to news topic")
+        // [END subscribe_topic]
+    }
+    
 }
 

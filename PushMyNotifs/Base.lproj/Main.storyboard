@@ -1,26 +1,74 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PushMyNotifs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAs-cr-Suo">
+                                <rect key="frame" x="124.5" y="230" width="71" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="71" id="RKZ-WL-jlw"/>
+                                    <constraint firstAttribute="height" constant="30" id="anp-Ek-oA4"/>
+                                </constraints>
+                                <state key="normal" title="Log Token"/>
+                                <connections>
+                                    <action selector="handleLogToken:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sg4-Tc-izE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTg-Ry-8Kc">
+                                <rect key="frame" x="124.5" y="303" width="71" height="30"/>
+                                <state key="normal" title="Subscribe"/>
+                                <connections>
+                                    <action selector="handleSubscribe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ef2-15-3LQ"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="skS-x3-uuI">
+                                <rect key="frame" x="0.0" y="43" width="320" height="164"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="9gt-ZB-xBU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PAs-cr-Suo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3PQ-cd-iLZ"/>
+                            <constraint firstItem="nTg-Ry-8Kc" firstAttribute="height" secondItem="PAs-cr-Suo" secondAttribute="height" id="3hv-V8-ifW"/>
+                            <constraint firstItem="skS-x3-uuI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Er4-LK-8Pr"/>
+                            <constraint firstItem="skS-x3-uuI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="23" id="FdX-E1-9WG"/>
+                            <constraint firstItem="nTg-Ry-8Kc" firstAttribute="width" secondItem="PAs-cr-Suo" secondAttribute="width" id="MPW-bx-zsL"/>
+                            <constraint firstItem="nTg-Ry-8Kc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UJv-dl-1Wz"/>
+                            <constraint firstItem="nTg-Ry-8Kc" firstAttribute="top" secondItem="PAs-cr-Suo" secondAttribute="bottom" constant="43" id="Ua4-pg-IQT"/>
+                            <constraint firstAttribute="trailing" secondItem="skS-x3-uuI" secondAttribute="trailing" id="jll-yV-8p8"/>
+                            <constraint firstItem="PAs-cr-Suo" firstAttribute="top" secondItem="skS-x3-uuI" secondAttribute="bottom" constant="23" id="yIF-kU-W4c"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tokenView" destination="skS-x3-uuI" id="uZ1-sX-bR5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="31.875" y="70.774647887323951"/>
         </scene>
     </scenes>
 </document>
